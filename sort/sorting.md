@@ -1,7 +1,7 @@
 # Sorting Algorithms
 ## 선택정렬 (selection sort)
 
-![select](https://user-images.githubusercontent.com/63408930/91021692-0fbb3580-e62f-11ea-85cc-d8c53389f84b.gif)
+![SelectionSort_Avg_case](https://user-images.githubusercontent.com/63408930/91028860-0636cb00-e639-11ea-9a04-44ac3611a9ab.gif)
 ```python
 def selection_sort(a):
     for i in range(len(a) - 1) :
@@ -22,7 +22,7 @@ print(list)
 ***
 ## 삽입정렬 (insertion sort)
 
-![insert](https://user-images.githubusercontent.com/63408930/91026064-37ad9780-e635-11ea-890c-6cd0ea098f4e.gif)
+![insertionSort](https://user-images.githubusercontent.com/63408930/91029071-472edf80-e639-11ea-9117-872995ab17ef.gif)
 ```python
 def insertion_sort(a):
     for i in range(1, len(a)):
@@ -42,3 +42,22 @@ print(list)
 * 배열의 요소를 정렬된 부분의 값들과 비교하며 자리를 찾아가는 방식
 * 시간복잡도 = O(n^2)
 * 이미 데이터가 정렬되었을때는 바로 옆자리 값만 비교하므로 상수 번의 시간복잡도 O(n)
+
+***
+## 버블정렬 (bubble sort)
+
+![BubbleSort_Avg_case](https://user-images.githubusercontent.com/63408930/91028588-a6d8bb00-e638-11ea-9b82-a3e2f1e9264f.gif)
+```python
+def bubble_sort(a):
+    for i in range(len(a) - 1) :
+        for j in range(len(a) - 1, i, -1) :
+            if a[j - 1] > a[j] :
+                a[j], a[j - 1] = a[j - 1], a[j]
+
+list = [5, 4, 3, 2, 1]
+bubble_sort(list)
+print(list)
+```
+* 인접 요소들을 서로 반복적으로 교환하는 방식
+* 시간복잡도 = O(n^2)
+
