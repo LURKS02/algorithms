@@ -61,3 +61,23 @@ print(list)
 * 인접 요소들을 서로 반복적으로 교환하는 방식
 * 시간복잡도 = O(n^2)
 
+***
+## 퀵정렬 (quick sort)
+
+![quick-sort-animation](https://user-images.githubusercontent.com/63408930/91142357-9afa0100-e6eb-11ea-9335-892cf62eccf1.gif)
+```python
+def quick_sort(a):
+    if len(a) <= 1 :
+        return a
+    else :
+        pivot = a[0]
+        less = [x for x in a[1:] if x <= pivot]
+        greater = [x for x in a[1:] if x > pivot]
+        return quick_sort(less) + [pivot] + quick_sort(greater)
+
+list = [3,2,5,1,4]
+print(quick_sort(list))
+'''
+* pivot을 기준으로 분할(partition) 진행
+* 시간복잡도 = O(nlogn)
+* 최악의 경우 - pivot 선정시 최솟값 또는 최댓값이 선정되어 좌우 한쪽이 없거나 1뿐인 배열 (시간복잡도 = O(n^2))
