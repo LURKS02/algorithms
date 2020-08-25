@@ -81,3 +81,39 @@ print(quick_sort(list))
 * pivot을 기준으로 분할(partition) 진행
 * 시간복잡도 = O(nlogn)
 * 최악의 경우 - pivot 선정시 최솟값 또는 최댓값이 선정되어 좌우 한쪽이 없거나 1뿐인 배열 (시간복잡도 = O(n^2))
+
+***
+## 병합정렬 (merge sort)
+
+![MergeSort_Avg_case](https://user-images.githubusercontent.com/63408930/91154921-14e6b600-e6fd-11ea-92d0-4a566df6fd9d.gif)
+```python
+def merge_sort(a, left, right) :
+    if left == right :
+        return [a[left]]
+    mid = (left + right) // 2
+    arr1 = merge_sort(a, left, mid)
+    arr2 = merge_sort(a, mid + 1, right)
+    lidx = 0
+    ridx = 0
+    temp = []
+    while lidx <= mid - left and ridx <= right - mid - 1 :
+        if arr1[lidx] > arr2[ridx] :
+            temp.append(arr2[ridx])
+            ridx += 1
+        else :
+            temp.append(arr1[lidx])
+            lidx += 1
+    while lidx <= mid - left:
+        temp.append(arr1[lidx])
+        lidx += 1
+    while ridx <= right - mid - 1 :
+        temp.append(arr2[ridx])
+        ridx += 1
+    return temp
+
+list = [3,1,4,2,5]
+print(merge_sort(list, 0, len(list) - 1))
+```
+* 전체 원소들을 부분집합으로 분할(divide) 하고 각 부분집합에 대하여 정렬 작업을 진행(conquer)하여 결합(combine)
+* 시간복잡도 = O(n^2)
+* stable 하지만 메모리의 할당이 많음
