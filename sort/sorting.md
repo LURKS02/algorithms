@@ -77,7 +77,7 @@ def quick_sort(a):
 
 list = [3,2,5,1,4]
 print(quick_sort(list))
-'''
+```
 * pivot을 기준으로 분할(partition) 진행
 * 시간복잡도 = O(nlogn)
 * 최악의 경우 - pivot 선정시 최솟값 또는 최댓값이 선정되어 좌우 한쪽이 없거나 1뿐인 배열 (시간복잡도 = O(n^2))
